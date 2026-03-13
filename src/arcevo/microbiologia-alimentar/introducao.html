@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yonia - Microbiologia Alimentar 🧫</title>
+    <link rel="stylesheet" href="../../../visual.css">
+    <style>
+        /* Ajustes específicos para ícones e elementos da página */
+        .microscopio-bg {
+            background: radial-gradient(circle at 30% 50%, rgba(67, 97, 238, 0.03) 0%, transparent 50%);
+        }
+        .bacteria-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+        .badge-ruim {
+            background: rgba(247, 37, 133, 0.15);
+            color: #b5179e;
+        }
+        .badge-bom {
+            background: rgba(76, 201, 240, 0.15);
+            color: #3a86ff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="titulo-encantado">
+            Yonia
+        </h1>
+        <p class="texto-encantado">microbiologia alimentar: o mundo invisível que (sobre)vive no seu prato</p>
+    </header>
+
+    <main class="pagina">
+        <!-- Card de Introdução -->
+        <section class="cartao microscopio-bg">
+            <h2 class="subtitulo">🧫 O que é Microbiologia Alimentar?</h2>
+            <p class="texto">É o estudo dos microrganismos que interagem com os alimentos - tanto os que estragam, os que causam doenças, quanto os que usamos pra fazer queijo, pão, iogurte e até cerveja. Basicamente: <strong>o bem, o mal e o feio (que às vezes é bonito porque dá gostoso)</strong>.</p>
+            
+            <div class="destaque-info">
+                <div class="info-item">
+                    <span class="info-numero">99,99%</span>
+                    <span class="info-rotulo">são inofensivos ou benéficos</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-numero">0,01%</span>
+                    <span class="info-rotulo">são os vilões (patogênicos)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-rotulo" style="font-size: 1rem;">🧀 🍞 🍺</span>
+                    <span class="info-rotulo">devemos a eles</span>
+                </div>
+            </div>
+
+            <div class="exemplo-card">
+                <strong>📌 Fato importante:</strong>
+                <p>Se todos os microrganismos fossem eliminados da face da Terra, a vida como conhecemos acabaria em poucos anos - eles são essenciais para os ciclos biogeoquímicos, produção de alimentos e até nossa digestão.</p>
+            </div>
+        </section>
+
+        <!-- Card: 99,99% são nossos amigos -->
+        <section class="cartao">
+            <h2 class="subtitulo">👍 99,99%: A turma do bem</h2>
+            <p class="texto">A maioria esmagadora dos microrganismos não só é inofensiva como é <strong>essencial</strong> para nossa sobrevivência e para a indústria de alimentos.</p>
+            
+            <div class="repertorios-container">
+                <div class="repertorio-categoria">
+                    <h4>🧀 Laticínios</h4>
+                    <ul class="lista-repertorios">
+                        <li><span class="bacteria-badge badge-bom">Lactobacillus</span> Iogurte, queijo, coalhada</li>
+                        <li><span class="bacteria-badge badge-bom">Streptococcus thermophilus</span> Iogurte e queijo mussarela</li>
+                        <li><span class="bacteria-badge badge-bom">Lactococcus lactis</span> Queijo minas, coalhada</li>
+                        <li><span class="bacteria-badge badge-bom">Propionibacterium</span> Os buracos do queijo suíço (produz CO₂)</li>
+                    </ul>
+                </div>
+
+                <div class="repertorio-categoria">
+                    <h4>🍞 Panificação</h4>
+                    <ul class="lista-repertorios">
+                        <li><span class="bacteria-badge badge-bom">Saccharomyces cerevisiae</span> O famoso fermento biológico (levedura)</li>
+                        <li><span class="bacteria-badge badge-bom">Lactobacillus sanfranciscensis</span> Fermento natural (sourdough)</li>
+                    </ul>
+                </div>
+
+                <div class="repertorio-categoria">
+                    <h4>🍺 Bebidas</h4>
+                    <ul class="lista-repertorios">
+                        <li><span class="bacteria-badge badge-bom">Saccharomyces cerevisiae</span> Cerveja, cachaça, vinho</li>
+                        <li><span class="bacteria-badge badge-bom">Acetobacter</span> Produção de vinagre (transforma álcool em ácido acético)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="repertorios-container" style="margin-top: 10px;">
+                <div class="repertorio-categoria" style="grid-column: span 3;">
+                    <h4>🥩 Embutidos e fermentados</h4>
+                    <ul class="lista-repertorios">
+                        <li><span class="bacteria-badge badge-bom">Pediococcus</span> Salame, pepperoni</li>
+                        <li><span class="bacteria-badge badge-bom">Staphylococcus xylosus</span> Cor e sabor em embutidos curados</li>
+                        <li><span class="bacteria-badge badge-bom">Aspergillus oryzae</span> Shoyu (molho de soja), missô</li>
+                        <li><span class="bacteria-badge badge-bom">Penicillium roqueforti</span> Queijo gorgonzola, roquefort</li>
+                        <li><span class="bacteria-badge badge-bom">Penicillium camemberti</span> Queijo camembert, brie</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="shine">
+                <strong>Curiosidade:</strong> O mesmo fungo que produz o queijo gorgonzola (Penicillium) deu origem ao primeiro antibiótico da história (penicilina). Microrganismos salvam vidas dentro e fora do prato!
+            </div>
+        </section>
+
+        <!-- Card: Os 0,01% vilões -->
+        <section class="cartao">
+            <h2 class="subtitulo">⚠️ Os 0,01%: A turma do mal (DTAs)</h2>
+            <p class="texto">Doenças Transmitidas por Alimentos (DTAs) são causadas por microrganismos patogênicos. Eles são minoria, mas quando entram no alimento errado... dá ruim.</p>
+            
+            <div class="estrutura-grid">
+                <div class="estrutura-item">
+                    <div class="estrutura-titulo">
+                        <span class="estrutura-icone">🦠</span>
+                        <h3>Salmonella</h3>
+                    </div>
+                    <p class="texto">A famosa. Presente em ovos crus, frango mal passado, leite não pasteurizado.</p>
+                    <div class="exemplo-card">
+                        <strong>Sintomas:</strong> diarréia, febre, vômito
+                    </div>
+                </div>
+
+                <div class="estrutura-item">
+                    <div class="estrutura-titulo">
+                        <span class="estrutura-icone">🧪</span>
+                        <h3>E. coli</h3>
+                    </div>
+                    <p class="texto">Maioria é inofensiva, mas algumas cepas (como O157:H7) causam infecções graves. Carne mal passada, vegetais contaminados.</p>
+                </div>
+
+                <div class="estrutura-item">
+                    <div class="estrutura-titulo">
+                        <span class="estrutura-icone">🥫</span>
+                        <h3>Clostridium botulinum</h3>
+                    </div>
+                    <p class="texto">O botulismo. Presente em conservas caseiras mal processadas, enlatados estufados. Produz toxina neuroparalisante.</p>
+                </div>
+
+                <div class="estrutura-item">
+                    <div class="estrutura-titulo">
+                        <span class="estrutura-icone">🍚</span>
+                        <h3>Bacillus cereus</h3>
+                    </div>
+                    <p class="texto">O "vilão do arroz requentado". Cresce em alimentos ricos em amido deixados em temperatura ambiente.</p>
+                </div>
+            </div>
+
+            <div class="exemplo-card" style="margin-top: 20px;">
+                <strong>🚨 Fator agroindústria:</strong>
+                <p>O controle desses patógenos é feito através de <strong>BPF (Boas Práticas de Fabricação)</strong>, APPCC (Análise de Perigos e Pontos Críticos de Controle), pasteurização, esterilização e controle de temperatura. A agroindústria existe pra que você não precise se preocupar com isso - mas quando falha, vemos surtos de DTAs.</p>
+            </div>
+        </section>
+
+        <!-- Card: Microrganismos que estragam alimentos (mas não causam doença) -->
+        <section class="cartao">
+            <h2 class="subtitulo">🤢 Os "estragadores" (deteriorantes)</h2>
+            <p class="texto">Não te matam, mas fazem o leite talhar, a carne feder, o pão mofar. Perda econômica gigante pra indústria.</p>
+            
+            <div class="dicas-grid">
+                <div class="dica">
+                    <span class="dica-icone">🥛</span>
+                    <div>
+                        <strong>Pseudomonas</strong>
+                        <p>Deixa o leite com gosto de ranço, carne com cheiro desagradável. Psicrotróficas (crescem até na geladeira!)</p>
+                    </div>
+                </div>
+                
+                <div class="dica">
+                    <span class="dica-icone">🍞</span>
+                    <div>
+                        <strong>Bolores (fungos)</strong>
+                        <p>Rhizopus, Penicillium, Aspergillus - mofam pão, frutas, queijos. Alguns produzem micotoxinas (perigosas).</p>
+                    </div>
+                </div>
+                
+                <div class="dica">
+                    <span class="dica-icone">🧈</span>
+                    <div>
+                        <strong>Leveduras</strong>
+                        <p>Estragam sucos, iogurtes, maionese. Fermentam sem permissão e estragam o sabor.</p>
+                    </div>
+                </div>
+                
+                <div class="dica">
+                    <span class="dica-icone">🥩</span>
+                    <div>
+                        <strong>Clostridium</strong>
+                        <p>Estragam carnes enlatadas (putrefação) - produzem gases que estufam as latas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card: Onde eles vivem? (Ecologia microbiana) -->
+        <section class="cartao">
+            <h2 class="subtitulo">🌍 Onde os microrganismos se escondem?</h2>
+            
+            <div class="estrutura-grid">
+                <div class="estrutura-item">
+                    <h3>📍 Matéria-prima</h3>
+                    <p>No campo: solo, água, fezes de animais, trato intestinal. A carne já chega no abatedouro com uma comunidade microbiana.</p>
+                </div>
+                <div class="estrutura-item">
+                    <h3>🧑‍🍳 Manipulação</h3>
+                    <p>Mãos, utensílios, superfícies. Daí a importância de lavar bem as mãos e sanitizar equipamentos.</p>
+                </div>
+                <div class="estrutura-item">
+                    <h3>🌡️ Armazenamento</h3>
+                    <p>Temperatura errada = festa microbiana. Zona de perigo: entre 5°C e 60°C.</p>
+                </div>
+                <div class="estrutura-item">
+                    <h3>💧 Água</h3>
+                    <p>Água contaminada é um dos principais veículos - usada na irrigação, higienização, processamento.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card: Fatores que afetam o crescimento (pra indústria) -->
+        <section class="cartao">
+            <h2 class="subtitulo">📊 Fatores intrínsecos x extrínsecos</h2>
+            <p class="texto">A microbiologia de alimentos não é só "tem bactéria ou não". A indústria controla o ambiente pra favorecer os bons e inibir os ruins.</p>
+            
+            <div class="repertorios-container">
+                <div class="repertorio-categoria">
+                    <h4>📦 Fatores intrínsecos (do alimento)</h4>
+                    <ul class="lista-repertorios">
+                        <li><strong>pH:</strong> Alimentos ácidos (pH < 4,5) inibem patógenos - picles, suco de limão</li>
+                        <li><strong>Atividade de água (Aa):</strong> Água disponível - alimentos secos (feijão, farinha) duram mais</li>
+                        <li><strong>Composição:</strong> Proteína e carboidrato = banquete pra eles</li>
+                        <li><strong>Potencial redox:</strong> Aeróbios x anaeróbios</li>
+                    </ul>
+                </div>
+
+                <div class="repertorio-categoria">
+                    <h4>🌡️ Fatores extrínsecos (ambiente)</h4>
+                    <ul class="lista-repertorios">
+                        <li><strong>Temperatura:</strong> Refrigeração, congelamento, pasteurização</li>
+                        <li><strong>Umidade relativa:</strong> Influencia a superfície do alimento</li>
+                        <li><strong>Composição gasosa:</strong> Embalagem a vácuo, atmosfera modificada</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exemplo-card">
+                <strong>🧀 Exemplo clássico (queijo):</strong>
+                <p>O queijo gorgonzola tem Penicillium (bom) crescendo porque o interior tem baixo oxigênio (anaerobiose), pH levemente ácido e alta umidade - condições perfeitas pro fungo escolhido, mas que inibiriam Salmonella, por exemplo.</p>
+            </div>
+        </section>
+
+        <!-- Card: Métodos de controle na agroindústria -->
+        <section class="cartao">
+            <h2 class="subtitulo">🛡️ Como a agroindústria controla?</h2>
+            
+            <div class="dicas-grid">
+                <div class="dica">
+                    <span class="dica-icone">🔥</span>
+                    <div>
+                        <strong>Tratamento térmico</strong>
+                        <p>Pasteurização (72°C/15s), esterilização (UHT), branqueamento</p>
+                    </div>
+                </div>
+                
+                <div class="dica">
+                    <span class="dica-icone">❄️</span>
+                    <div>
+                        <strong>Frio</strong>
+                        <p>Refrigeração (retarda), congelamento (paralisa)</p>
+                    </div>
+                </div>
+                
+                <div class="dica">
+                    <span class="dica-icone">💧</span>
+                    <div>
+                        <strong>Redução de água</strong>
+                        <p>Desidratação, liofilização, salga, açúcar (geleias)</p>
+                    </div>
+                </div>
+                
+                <div class="dica">
+                    <span class="dica-icone">🧂</span>
+                    <div>
+                        <strong>Adição de conservantes</strong>
+                        <p>Sal, ácido acético (vinagre), ácido lático, nitritos</p>
+                    </div>
+                </div>
+
+                <div class="dica">
+                    <span class="dica-icone">📦</span>
+                    <div>
+                        <strong>Embalagem</strong>
+                        <p>Vácuo, atmosfera modificada, embalagem asséptica</p>
+                    </div>
+                </div>
+
+                <div class="dica">
+                    <span class="dica-icone">🧪</span>
+                    <div>
+                        <strong>Fermentação controlada</strong>
+                        <p>Culturas starter (inoculação dos bons pra competir com os ruins)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card: Exemplo prático - Queijo -->
+        <section class="cartao">
+            <h2 class="subtitulo">🧀 Estudo de caso: O queijo</h2>
+            
+            <div class="estrutura-grid">
+                <div class="estrutura-item" style="grid-column: span 2;">
+                    <p class="texto">O queijo é um exemplo perfeito de como a microbiologia transforma leite (que estraga em dias) em um produto que dura meses.</p>
+                </div>
+            </div>
+
+            <div class="redacao-modelo" style="background: rgba(67, 97, 238, 0.02);">
+                <h4>Processo microbiológico do queijo minas frescal:</h4>
+                
+                <div class="paragrafo-modelo">
+                    <span class="paragrafo-label">1. Acidificação</span>
+                    <p>Bactérias láticas (Lactococcus lactis) consomem lactose e produzem ácido lático. O pH cai, o leite talha (coagula) e patógenos como Salmonella não conseguem mais crescer.</p>
+                </div>
+
+                <div class="paragrafo-modelo">
+                    <span class="paragrafo-label">2. Maturação</span>
+                    <p>Em queijos maturados (provolone, parmesão), enzimas das bactérias quebram proteínas e gorduras, gerando sabor e aroma característicos.</p>
+                </div>
+
+                <div class="paragrafo-modelo">
+                    <span class="paragrafo-label">3. Defesa natural</span>
+                    <p>O ambiente ácido, salgado e com baixa umidade (nos curados) seleciona apenas os microrganismos desejados. É uma guerra química, e a indústria controla quem vence.</p>
+                </div>
+            </div>
+
+            <div class="frase-motivacional" style="margin-top: 20px;">
+                <p>"O queijo é o leite em busca da imortalidade."</p>
+                <span>- ... Vagnerzinho</span>
+            </div>
+        </section>
+
+        <!-- Card: Glossário rápido -->
+        <section class="cartao">
+            <h2 class="subtitulo">📖 Glossário da Microbiologia Alimentar</h2>
+            
+            <div class="repertorios-container">
+                <div class="repertorio-categoria" style="grid-column: span 3;">
+                    <ul class="lista-repertorios" style="list-style: disc; padding-left: 20px;">
+                        <li><strong>Patogênico:</strong> Causa doença</li>
+                        <li><strong>Deteriorante:</strong> Estraga o alimento (muda cor, cheiro, textura)</li>
+                        <li><strong>Benéfico/tecnológico:</strong> Usado na produção</li>
+                        <li><strong>Psicrotrófico:</strong> Cresce em refrigeração</li>
+                        <li><strong>Termodúrico:</strong> Sobrevive à pasteurização</li>
+                        <li><strong>Esporo:</strong> Forma de resistência (Clostridium, Bacillus) - difícil de matar</li>
+                        <li><strong>Micotoxina:</strong> Toxina produzida por fungos (aflatoxina no amendoim, milho)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card: Mensagem final -->
+        <section class="cartao">
+            <h2 class="subtitulo">🧪 Resumo para a prova</h2>
+            
+            <div class="estrutura-grid">
+                <div class="estrutura-item">
+                    <span class="info-numero" style="font-size: 1.8rem;">👍 99,99%</span>
+                    <p>Bons ou inofensivos - essenciais para queijos, pães, bebidas</p>
+                </div>
+                <div class="estrutura-item">
+                    <span class="info-numero" style="font-size: 1.8rem;">👎 0,01%</span>
+                    <p>Patógenos - Salmonella, E. coli, Listeria, Botulismo</p>
+                </div>
+                <div class="estrutura-item">
+                    <span class="info-numero" style="font-size: 1.8rem;">🧫</span>
+                    <p>O papel da agroindústria é controlar os ruins e aproveitar os bons</p>
+                </div>
+            </div>
+
+            <div class="shine" style="margin-top: 20px;">
+                ⚡ Decorou? Não. Entendeu? Sim. Microbiologia não é sobre decorar nome de bactéria, é sobre entender que os alimentos são ecossistemas vivos, e a indústria aprendeu a gerenciar esses ecossistemas pra gente não passar fome nem morrer envenenado.
+            </div>
+        </section>
+
+        <!-- Navegação -->
+        <section class="cartao" style="text-align: center;">
+            <p class="shine" style="margin-top: 20px;">"Você é o que você come" - mas também é o que seus microrganismos comensais digerem por você.</p>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <p>Feito com ❤️... e muito café ☕☕☕☕☕ </p>
+        <p>Yonia - 2026©</p>
+        <p>versao 1.2</p>
+    </footer>
+</body>
+</html>
