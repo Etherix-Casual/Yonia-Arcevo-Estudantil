@@ -45,6 +45,14 @@ body {
     color: var(--text);
 }
 
+footer {
+    background: var(--surface);
+    text-align: center;
+    padding: 15px 10px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
+}
+
 /* ========================================
    3. TIPOGRAFIA LEGADA (mantida para compatibilidade)
    ======================================== */
@@ -164,6 +172,12 @@ body {
     background-color: #cccccc;
     cursor: not-allowed;
     box-shadow: none;
+}
+
+.rodape {
+    color: #777;
+    font-size: 14px;
+    margin-top: 20px;
 }
 
 /* ========================================
