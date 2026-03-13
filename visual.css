@@ -353,9 +353,12 @@ header::after {
     margin: 10px;
     transition: all 0.3s ease;
     box-shadow: var(--shadow-sm);
-    position: relative;
+    position: auto;
     overflow: hidden;
     text-transform: uppercase;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .botao::before {
