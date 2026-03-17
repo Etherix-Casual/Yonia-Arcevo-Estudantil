@@ -23,7 +23,7 @@
     /* Variáveis genéricas em português (para uso futuro) */
     --fonte-principal: 'Inter', 'Segoe UI', system-ui, sans-serif;
     --fonte-titulo: 'Inter', 'Segoe UI', sans-serif;
-    --borda-raio-padrao: 24px;
+    --borda-raio-padrao: 20px;
     --borda-raio-pequeno: 8px;
     --espacamento-padrao: 20px;
 }
@@ -663,6 +663,15 @@ header::after {
     font-weight: 600;
 }
 
+.atomo-bg {
+    background: radial-gradient(circle at 70% 30%, rgba(247, 37, 133, 0.03) 0%, transparent 50%);
+}
+.legenda-tabela {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 5px;
+}
 /* ========================================
    8. UTILITÁRIOS E CLASSES DE TRANSIÇÃO (compatibilidade)
    ======================================== */
