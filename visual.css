@@ -7,8 +7,8 @@
 /* 1. VARIÁVEIS GLOBAIS (mantidos os nomes originais em inglês)
       Novas variáveis genéricas foram adicionadas ao final */
 :root {
-    --primary: #4361ee;
-    --primary-dark: #3a56d4;
+    --primary: #0522a4;
+    --primary-dark: #001573;
     --secondary: #7209b7;
     --accent: #f72585;
     --background: #f8f9fa;
@@ -641,6 +641,15 @@ header::after {
     margin: 0;
     font-size: 0.9rem;
     color: var(--text-light);
+}
+
+.formula {
+    background-color: rgba(103, 220, 255, 0.833);
+    font-family:monospace;
+    font-size:xx-large;
+    margin: 3px;
+    padding: 12px;
+    border-radius: 12px;
 }
 
 .frase-motivacional {

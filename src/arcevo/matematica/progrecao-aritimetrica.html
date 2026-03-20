@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yonia - Progressão Aritmética (PA) ➕</title>
+    <link rel="stylesheet" href="../../../visual.css">
+    <style>
+        /* Estilos extras para melhor organização e interatividade */
+        .formula {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+        .formula-inline {
+            font-family: monospace;
+            font-weight: 600;
+            background: rgba(67, 97, 238, 0.1);
+            padding: 2px 8px;
+            border-radius: 8px;
+        }
+        .calculadora-pa {
+            background: rgba(67, 97, 238, 0.03);
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .campo-input {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+            justify-content: center;
+        }
+        .input-group {
+            flex: 1;
+            min-width: 150px;
+        }
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-light);
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid rgba(67, 97, 238, 0.2);
+            border-radius: 12px;
+            font-size: 1rem;
+            background: var(--surface);
+            transition: all 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+        .resultado-pa {
+            background: var(--surface);
+            padding: 15px;
+            border-radius: 16px;
+            margin-top: 15px;
+            text-align: center;
+            border-left: 4px solid var(--accent);
+        }
+        .tipo-pa {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 5px 0;
+        }
+        .crescente { background: rgba(76, 201, 240, 0.15); color: #3a86ff; }
+        .decrescente { background: rgba(247, 37, 133, 0.15); color: #b5179e; }
+        .constante { background: rgba(255, 193, 7, 0.15); color: #ffbe0b; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="titulo-encantado">
+            Yonia
+        </h1>
+        <p class="texto-encantado">progressão aritmética: a arte de somar constantemente ➕➖</p>
+    </header>
+
+    <main class="pagina">
+
+        <!-- Card 1: Introdução -->
+        <section class="cartao">
+            <h2 class="subtitulo">📈 O que é uma Progressão Aritmética (PA)?</h2>
+            <p class="texto">Uma <strong>Progressão Aritmética</strong> é uma sequência de números onde cada termo, a partir do segundo, é igual ao anterior somado a uma constante chamada <strong class="formula-inline">razão (r)</strong>. É como dar passos de tamanho fixo em uma reta numérica.</p>
+            
+            <div class="destaque-info">
+                <div class="info-item">
+                    <span class="info-numero">a₁</span>
+                    <span class="info-rotulo">primeiro termo</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-numero">r</span>
+                    <span class="info-rotulo">razão (passo)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-numero">aₙ</span>
+                    <span class="info-rotulo">termo geral</span>
+                </div>
+            </div>
+
+            <div class="exemplo-card">
+                <strong>✨ Exemplo clássico:</strong><br>
+                (2, 4, 6, 8, 10, ...)<br>
+                Aqui, a₁ = 2 e r = 2 (cada termo aumenta 2 unidades).  
+                Esse tipo é chamado de PA <strong class="tipo-pa crescente">crescente</strong>.
+            </div>
+        </section>
+
+        <!-- Card 2: Fórmulas principais -->
+        <section class="cartao">
+            <h2 class="subtitulo">📐 Fórmulas Essenciais</h2>
+            <div class="estrutura-grid">
+                <div class="estrutura-item">
+                    <h3>🔹 Termo Geral</h3>
+                    <p class="formula">aₙ = a₁ + (n - 1) · r</p>
+                    <p>Permite encontrar qualquer termo da PA conhecendo o primeiro termo, a razão e a posição <strong>n</strong>.</p>
+                </div>
+                <div class="estrutura-item">
+                    <h3>🔹 Soma dos n primeiros termos</h3>
+                    <p class="formula">Sₙ = (a₁ + aₙ) · n / 2</p>
+                    <p>Fórmula de Gauss: soma do primeiro com o último, multiplicado pelo número de termos e dividido por 2.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card 3: Como identificar e classificar uma PA -->
+        <section class="cartao">
+            <h2 class="subtitulo">🔍 Classificação da PA</h2>
+            <div class="repertorios-container">
+                <div class="repertorio-categoria">
+                    <h4>📈 Crescente (r > 0)</h4>
+                    <p>Ex: (3, 5, 7, 9, ...)<br>a₁ = 3, r = 2</p>
+                </div>
+                <div class="repertorio-categoria">
+                    <h4>📉 Decrescente (r < 0)</h4>
+                    <p>Ex: (10, 7, 4, 1, ...)<br>a₁ = 10, r = -3</p>
+                </div>
+                <div class="repertorio-categoria">
+                    <h4>⚖️ Constante (r = 0)</h4>
+                    <p>Ex: (5, 5, 5, 5, ...)<br>todos os termos são iguais</p>
+                </div>
+            </div>
+            <div class="shine" style="margin-top: 10px;">
+                💡 <strong>Dica:</strong> Para achar a razão, subtraia qualquer termo pelo anterior: r = a₂ – a₁ = a₃ – a₂ = ...
+            </div>
+        </section>
+
+        <!-- Card 4: Exemplos práticos e passo a passo -->
+        <section class="cartao">
+            <h2 class="subtitulo">🧠 Passo a passo: como resolver</h2>
+            <div class="redacao-modelo">
+                <h4>Exemplo 1: Encontrar o 10º termo</h4>
+                <div class="paragrafo-modelo">
+                    <span class="paragrafo-label">Dados</span>
+                    <p>PA: (3, 7, 11, 15, ...) → a₁ = 3, r = 4, queremos a₁₀.</p>
+                </div>
+                <div class="paragrafo-modelo">
+                    <span class="paragrafo-label">Fórmula</span>
+                    <p>aₙ = a₁ + (n – 1)·r</p>
+                    <p>a₁₀ = 3 + (10 – 1)·4 = 3 + 9·4 = 3 + 36 = 39</p>
+                </div>
+                <div class="paragrafo-modelo">
+                    <span class="paragrafo-label">Resposta</span>
+                    <p>O décimo termo é <strong>39</strong>.</p>
+                </div>
+            </div>
+
+            <div class="redacao-modelo" style="margin-top: 20px;">
+                <h4>Exemplo 2: Somar os 20 primeiros termos</h4>
+                <div class="paragrafo-modelo">
+                    <span class="paragrafo-label">PA</span>
+                    <p>(5, 9, 13, 17, ...) → a₁ = 5, r = 4, n = 20.</p>
+                </div>
+                <div class="paragrafo-modelo">
+                    <span class="paragrafo-label">Passo 1: a₂₀</span>
+                    <p>a₂₀ = 5 + (20 – 1)·4 = 5 + 76 = 81</p>
+                </div>
+                <div class="paragrafo-modelo">
+                    <span class="paragrafo-label">Passo 2: Soma</span>
+                    <p>S₂₀ = (a₁ + a₂₀)·20 / 2 = (5 + 81)·10 = 86·10 = 860</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card 5: Interatividade - Calculadora de PA -->
+        <section class="cartao">
+            <h2 class="subtitulo">🖩 Calculadora Interativa de PA</h2>
+            <p class="texto">Digite os valores abaixo e veja a PA gerada, o n-ésimo termo e a soma dos primeiros n termos.</p>
+            
+            <div class="calculadora-pa">
+                <div class="campo-input">
+                    <div class="input-group">
+                        <label>🔹 Primeiro termo (a₁)</label>
+                        <input type="number" id="a1" value="2" step="any">
+                    </div>
+                    <div class="input-group">
+                        <label>🔸 Razão (r)</label>
+                        <input type="number" id="razao" value="3" step="any">
+                    </div>
+                    <div class="input-group">
+                        <label>🔹 Número de termos (n)</label>
+                        <input type="number" id="ntermos" value="5" min="1" step="1">
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <button class="botao" id="calcularPA" style="margin: 5px auto;">Calcular</button>
+                </div>
+                
+                <div id="resultadoPA" class="resultado-pa">
+                    <strong>🔍 Resultados:</strong><br>
+                    <span id="sequencia">PA: 2, 5, 8, 11, 14, ...</span><br>
+                    <span id="termoN">aₙ = 14</span><br>
+                    <span id="somaN">Sₙ = 40</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card 6: Dicas de ouro -->
+        <section class="cartao">
+            <h2 class="subtitulo">💎 Dicas de Ouro</h2>
+            <div class="dicas-grid">
+                <div class="dica">
+                    <span class="dica-icone">🧩</span>
+                    <div>
+                        <strong>Razão negativa?</strong>
+                        <p>Se r < 0, a PA é decrescente. Ex: 10, 7, 4, 1, ...</p>
+                    </div>
+                </div>
+                <div class="dica">
+                    <span class="dica-icone">🎯</span>
+                    <div>
+                        <strong>Três termos consecutivos</strong>
+                        <p>Em uma PA, o termo central é a média aritmética dos vizinhos: x, y, z → y = (x+z)/2</p>
+                    </div>
+                </div>
+                <div class="dica">
+                    <span class="dica-icone">⚡</span>
+                    <div>
+                        <strong>Fórmula da soma alternativa</strong>
+                        <p>Sₙ = n·(2a₁ + (n-1)r)/2 (útil quando não conhece aₙ)</p>
+                    </div>
+                </div>
+                <div class="dica">
+                    <span class="dica-icone">📌</span>
+                    <div>
+                        <strong>Interpolação aritmética</strong>
+                        <p>Inserir meios aritméticos entre dois números: calcule r = (b - a)/(k+1).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <script src="../../../src/footer.js"></script>
+
+    <script>
+        // Calculadora interativa de PA usando DOM
+        function atualizarPA() {
+            // Obter valores
+            let a1 = parseFloat(document.getElementById('a1').value);
+            let r = parseFloat(document.getElementById('razao').value);
+            let n = parseInt(document.getElementById('ntermos').value);
+            
+            // Validações
+            if (isNaN(a1)) a1 = 0;
+            if (isNaN(r)) r = 0;
+            if (isNaN(n) || n < 1) n = 1;
+            
+            // Calcular o n-ésimo termo
+            let an = a1 + (n - 1) * r;
+            // Calcular a soma
+            let Sn = (a1 + an) * n / 2;
+            
+            // Gerar os primeiros termos (até no máximo 8 para não poluir)
+            let termos = [];
+            let limite = Math.min(n, 10);
+            for (let i = 1; i <= limite; i++) {
+                let termo = a1 + (i - 1) * r;
+                // Arredondar para evitar decimais muito longos
+                termo = Number(termo.toFixed(4));
+                termos.push(termo);
+            }
+            let sequenciaStr = termos.join(', ');
+            if (n > 10) sequenciaStr += ', ...';
+            
+            // Exibir resultados
+            document.getElementById('sequencia').innerHTML = `<strong>PA (${limite} primeiros):</strong> ${sequenciaStr}`;
+            document.getElementById('termoN').innerHTML = `<strong>a<sub>${n}</sub> (termo na posição ${n}):</strong> ${an.toFixed(4)}`;
+            document.getElementById('somaN').innerHTML = `<strong>Soma dos ${n} primeiros termos:</strong> ${Sn.toFixed(4)}`;
+            
+            // Adicionar classificação automática
+            let classificacao = '';
+            if (r > 0) classificacao = '<span class="tipo-pa crescente">📈 PA crescente</span>';
+            else if (r < 0) classificacao = '<span class="tipo-pa decrescente">📉 PA decrescente</span>';
+            else classificacao = '<span class="tipo-pa constante">⚖️ PA constante</span>';
+            
+            // Inserir classificação na área de resultado (opcional)
+            let resultadoDiv = document.getElementById('resultadoPA');
+            let classSpan = resultadoDiv.querySelector('.classificacao-pa');
+            if (!classSpan) {
+                classSpan = document.createElement('div');
+                classSpan.className = 'classificacao-pa';
+                classSpan.style.marginTop = '8px';
+                resultadoDiv.appendChild(classSpan);
+            }
+            classSpan.innerHTML = classificacao;
+        }
+        
+        // Configurar evento do botão e atualização automática ao mudar inputs
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('calcularPA');
+            const inputs = ['a1', 'razao', 'ntermos'];
+            btn.addEventListener('click', atualizarPA);
+            inputs.forEach(id => {
+                document.getElementById(id).addEventListener('input', atualizarPA);
+            });
+            atualizarPA(); // executar ao carregar
+        });
+    </script>
+</body>
+</html>

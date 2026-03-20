@@ -1,9 +1,9 @@
 // Seleciona o elemento body e insere o rodapé dinamicamente
 const footerHTML = `
     <footer class="rodape">
-        <p>Feito com ❤️... e muito café ☕☕☕☕☕ </p>
+        <p>Feito com ❤️... e muito café ☕☕☕☕☕ tipo... muito mesmo</p>
         <p>Yonia - 2026©</p>
-        <p>versao 1.2</p>
+        <p>versao 1.3</p>
     </footer>
 `;
 
