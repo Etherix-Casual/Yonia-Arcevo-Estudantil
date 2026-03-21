@@ -5,9 +5,9 @@ const headerHTML = `
         </h1>
         <p class="texto-encantado">arquivo de material didático (em construção)</p>
         <nav class="nav-principal">
-            <a href="/index.html" class="botao botao-nav">🏠 Início</a>
-            <a href="/src/arcevo/index.html" class="botao botao-nav">📚 Arquivo</a>
-            <a href="/src/quizz/index.html" class="botao botao-nav">❓ Quizz</a>
+            <a href="/Yonia-Arcevo-Estudantil/index.html" class="botao botao-nav">🏠 Início</a>
+            <a href="/Yonia-Arcevo-Estudantil/src/arcevo/index.html" class="botao botao-nav">📚 Arquivo</a>
+            <a href="/Yonia-Arcevo-Estudantil/src/quizz/index.html" class="botao botao-nav">❓ Quizz</a>
             <a href="#" class="botao botao-nav">⚙️ Configurações</a>
         </nav>
     </header>
