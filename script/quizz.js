@@ -1,22 +1,21 @@
 // ========================================
-// QUIZZ.JS - Sistema de Quiz com múltiplos temas
+// QUIZZ.JS - Sistema de Quiz
 // ========================================
 
-// Configuração dos temas (nome do tema e arquivo JSON)
+// Configuração dos temas (agora do arquivo JS)
 const temasDisponiveis = [
-    { nome: "Física Basica", arquivo: "/data/fisica-basica.json" },
-    { nome: "História Grega", arquivo: "/data/historia-grega.json" },
-    { nome: "História (Idade media)", arquivo: "/data/historia-idade-media.json" },
-    { nome: "História Romana", arquivo: "/data/historia-romana.json" },
-    { nome: "Matemática Avançada", arquivo: "/data/matematica-avancada.json" },
-    { nome: "Matemática Basica", arquivo: "/data/matematica-basica.json" },
-    { nome: "Português", arquivo: "/data/portugues-basico.json" },
-    { nome: "Química Basica", arquivo: "/data/quimica-basica.json" },
+    { nome: "Fisica Basica", chave: "fisica_basica" },
+    { nome: "Historia Grega", chave: "historia_grega" },
+    { nome: "Historia (Idade media)", chave: "historia_idade_media" },
+    { nome: "Historia Romana", chave: "historia_romana" },
+    { nome: "Matematica Avancada", chave: "matematica_avancada" },
+    { nome: "Matematica Basica", chave: "matematica_basica" },
+    { nome: "Portugues Basico", chave: "portugues_basico"},
+    { nome: "Quimica Basica", chave: "quimica_basica" }
 ];
 
-let perguntasCarregadas = {}; // { tema: [perguntas] }
 let temasSelecionados = [];
-let quantidadeSelecionada = 10; // padrão
+let quantidadeSelecionada = 10;
 let perguntasQuiz = [];
 let respostasUsuario = [];
 let perguntaAtual = 0;
@@ -54,23 +53,17 @@ function embaralharArray(array) {
     return array;
 }
 
-// Carregar todos os JSONs dos temas (ao iniciar a página)
-async function carregarTodosOsTemas() {
-    const promises = temasDisponiveis.map(async tema => {
-        try {
-            const response = await fetch(tema.arquivo);
-            if (!response.ok) throw new Error(`Erro ao carregar ${tema.arquivo}`);
-            const dados = await response.json();
-            perguntasCarregadas[tema.nome] = dados;
-            return { nome: tema.nome, qtd: dados.length };
-        } catch (error) {
-            console.error(error);
-            return { nome: tema.nome, qtd: 0, erro: true };
-        }
+// Carregar dados diretamente do banco global
+function carregarTemas() {
+    const resultados = temasDisponiveis.map(tema => {
+        const perguntas = bancoPerguntas[tema.chave] || [];
+        return {
+            nome: tema.nome,
+            chave: tema.chave,
+            qtd: perguntas.length
+        };
     });
-    const resultados = await Promise.all(promises);
     renderizarListaTemas(resultados);
-    // Carregar configurações salvas do localStorage
     carregarConfiguracoesSalvas();
 }
 
@@ -79,28 +72,29 @@ function renderizarListaTemas(resultados) {
     resultados.forEach((tema, idx) => {
         const div = document.createElement('div');
         div.className = 'tema-card';
-        if (temasSelecionados.includes(tema.nome)) div.classList.add('selecionado');
+        if (temasSelecionados.includes(tema.chave)) div.classList.add('selecionado');
         div.innerHTML = `
             <div class="tema-nome">${tema.nome}</div>
             <div class="tema-qtd">${tema.qtd} perguntas</div>
         `;
-        div.addEventListener('click', () => toggleTema(tema.nome));
+        div.addEventListener('click', () => toggleTema(tema.chave, tema.nome));
         listaTemas.appendChild(div);
     });
 }
 
-function toggleTema(temaNome) {
-    const index = temasSelecionados.indexOf(temaNome);
+function toggleTema(chave, nome) {
+    const index = temasSelecionados.indexOf(chave);
     if (index === -1) {
-        temasSelecionados.push(temaNome);
+        temasSelecionados.push(chave);
     } else {
         temasSelecionados.splice(index, 1);
     }
+    
     // Atualizar visual
     const cards = document.querySelectorAll('.tema-card');
     cards.forEach((card, i) => {
-        const nomeTema = temasDisponiveis[i].nome;
-        if (temasSelecionados.includes(nomeTema)) {
+        const chaveTema = temasDisponiveis[i].chave;
+        if (temasSelecionados.includes(chaveTema)) {
             card.classList.add('selecionado');
         } else {
             card.classList.remove('selecionado');
@@ -111,7 +105,6 @@ function toggleTema(temaNome) {
 
 function configurarQuantidade(qtd) {
     quantidadeSelecionada = qtd;
-    // Atualizar visual dos botões
     botoesQuantidade.forEach(btn => {
         const btnQtd = parseInt(btn.dataset.qtd);
         if (btnQtd === qtd) {
@@ -139,26 +132,23 @@ function carregarConfiguracoesSalvas() {
             const config = JSON.parse(saved);
             temasSelecionados = config.temasSelecionados || [];
             quantidadeSelecionada = config.quantidadeSelecionada || 10;
-            // Atualizar visual dos temas (após carregar a lista)
-            // O visual será atualizado quando a lista for renderizada (já acontece depois do carregamento)
-            // Mas como a lista já foi carregada, precisamos re-renderizar com os temas selecionados
-            if (listaTemas.children.length > 0) {
-                const cards = document.querySelectorAll('.tema-card');
-                cards.forEach((card, i) => {
-                    const nomeTema = temasDisponiveis[i].nome;
-                    if (temasSelecionados.includes(nomeTema)) {
-                        card.classList.add('selecionado');
-                    }
-                });
-            }
-            // Atualizar quantidade
+            
+            // Atualizar visual dos temas
+            const cards = document.querySelectorAll('.tema-card');
+            cards.forEach((card, i) => {
+                const chaveTema = temasDisponiveis[i].chave;
+                if (temasSelecionados.includes(chaveTema)) {
+                    card.classList.add('selecionado');
+                }
+            });
+            
             configurarQuantidade(quantidadeSelecionada);
         } catch(e) { console.error(e); }
     }
 }
 
 // ==================== MONTAGEM DO QUIZ ====================
-async function montarQuiz() {
+function montarQuiz() {
     if (temasSelecionados.length === 0) {
         alert("Selecione pelo menos um tema.");
         return;
@@ -166,9 +156,10 @@ async function montarQuiz() {
     
     // Coletar perguntas dos temas selecionados
     let todasPerguntas = [];
-    for (const tema of temasSelecionados) {
-        if (perguntasCarregadas[tema]) {
-            todasPerguntas.push(...perguntasCarregadas[tema]);
+    for (const chave of temasSelecionados) {
+        const perguntasTema = bancoPerguntas[chave];
+        if (perguntasTema && perguntasTema.length > 0) {
+            todasPerguntas.push(...perguntasTema);
         }
     }
     
@@ -202,7 +193,6 @@ async function montarQuiz() {
     mostrarPergunta(perguntaAtual);
     atualizarBotoes();
     
-    // Resetar áreas de resultado e finalizar
     resultadoArea.style.display = 'none';
     finalizarArea.style.display = 'none';
     feedbackDiv.classList.remove('mostrar', 'correto', 'errado');
@@ -214,7 +204,6 @@ function mostrarPergunta(indice) {
     
     perguntaTexto.textContent = pergunta.pergunta;
     
-    // Renderizar opções
     opcoesContainer.innerHTML = '';
     const letras = ['A', 'B', 'C', 'D'];
     pergunta.opcoes.forEach((opcao, idx) => {
@@ -231,14 +220,12 @@ function mostrarPergunta(indice) {
         opcoesContainer.appendChild(opcaoDiv);
     });
     
-    // Esconder feedback
     feedbackDiv.classList.remove('mostrar', 'correto', 'errado');
 }
 
 function selecionarOpcao(perguntaIdx, opcaoIdx) {
     if (quizFinalizado) return;
     
-    // Atualizar visual
     const opcoes = document.querySelectorAll('.opcao');
     opcoes.forEach((op, idx) => {
         if (idx === opcaoIdx) {
@@ -250,7 +237,6 @@ function selecionarOpcao(perguntaIdx, opcaoIdx) {
     
     respostasUsuario[perguntaIdx] = opcaoIdx;
     
-    // Feedback
     const pergunta = perguntasQuiz[perguntaIdx];
     const acertou = (opcaoIdx === pergunta.correta);
     feedbackDiv.textContent = acertou ? '✅ Correto!' : `❌ Errado! ${pergunta.explicacao ? ' ' + pergunta.explicacao : ''}`;
@@ -258,7 +244,6 @@ function selecionarOpcao(perguntaIdx, opcaoIdx) {
     
     atualizarProgresso();
     
-    // Verificar se todas foram respondidas
     const todasRespondidas = respostasUsuario.every(r => r !== -1);
     if (todasRespondidas && perguntasQuiz.length > 0) {
         finalizarArea.style.display = 'block';
@@ -328,7 +313,6 @@ function finalizarQuiz() {
     finalizarArea.style.display = 'none';
     quizFinalizado = true;
     
-    // Desabilitar interação com opções
     const opcoes = document.querySelectorAll('.opcao');
     opcoes.forEach(op => op.style.pointerEvents = 'none');
 }
@@ -336,11 +320,10 @@ function finalizarQuiz() {
 function voltarParaConfig() {
     telaQuiz.style.display = 'none';
     telaConfig.style.display = 'block';
-    // Recarregar lista de temas para garantir (opcional)
 }
 
 function reiniciarQuiz() {
-    montarQuiz(); // apenas reinicia com as mesmas configurações
+    montarQuiz();
 }
 
 // ==================== EVENT LISTENERS ====================
@@ -353,7 +336,7 @@ botoesQuantidade.forEach(btn => {
 
 quantidadePersonalizada.addEventListener('change', () => {
     let val = parseInt(quantidadePersonalizada.value);
-    if (isNaN(val) || val < 1) val = 0; // 0 = todas
+    if (isNaN(val) || val < 1) val = 0;
     configurarQuantidade(val);
 });
 
@@ -368,4 +351,4 @@ btnProximo.addEventListener('click', () => {
 });
 
 // Inicializar
-carregarTodosOsTemas();
+carregarTemas();
