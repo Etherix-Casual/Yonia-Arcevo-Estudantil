@@ -1,0 +1,1 @@
+Yonia é um arcevo estudantil feito de estudante para estudante, onde aqui ira se armazenar a maior quantidade de conteudi didatico adiquirido ao tempo de toda a rotina escolar, incluindo materiais de estudo para o enem, concursos entre outras formações é objetivos academicos.
